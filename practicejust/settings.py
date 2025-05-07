@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-db#$+e17%8(jafc@jkyx70qn1uyecyn&dx*u5ffjm^bc+(mobf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://ebuka9195.pythonanywhere.com']
+ALLOWED_HOSTS = ['ebuka9195.pythonanywhere.com']
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
