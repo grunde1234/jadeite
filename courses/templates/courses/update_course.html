@@ -1,0 +1,82 @@
+{% extends 'frontend/base_dashboard.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="page-inner">
+    <div class="page-header">
+      <h3 class="fw-bold mb-3">Courses</h3>
+      <ul class="breadcrumbs mb-3">
+        <li class="nav-home">
+          <a href="{% url 'index' %}">
+            <i class="icon-home"></i>
+          </a>
+        </li>
+        <li class="separator"><i class="icon-arrow-right"></i></li>
+        <li class="nav-item"><a href="#">Forms</a></li>
+        <li class="separator"><i class="icon-arrow-right"></i></li>
+        <li class="nav-item"><a href="#">Update Course</a></li>
+      </ul>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">Update Course</div>
+          </div>
+
+          <div class="container" id="add-job-app">
+            <form method="POST" action=".">
+              {% csrf_token %}
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-6 col-lg-4">
+                    <div class="form-group">
+                      <label>Course Name</label>
+                      <input class="form-control" type="text" name="coursename" value="{{ course.coursename }}">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4">
+                    <div class="form-group">
+                      <label>Course Code</label>
+                      <input class="form-control" type="text" name="coursecode" value="{{ course.coursecode }}">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4">
+                    <div class="form-group">
+                      <label>Level</label>
+                      <input class="form-control" type="text" name="level" value="{{ course.level }}">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4">
+                    <div class="form-group">
+                      <label>Duration</label>
+                      <input class="form-control" type="text" name="duration" value="{{ course.duration }}">
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 col-lg-4">
+                    <div class="form-group">
+                      <label>Fee</label>
+                      <input class="form-control" type="text" name="fee" value="{{ course.fee }}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-action mt-3">
+                <input type="submit" class="btn btn-success" value="Update">
+                <a href="{% url 'view_courses' %}" class="btn btn-primary">View Courses</a>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

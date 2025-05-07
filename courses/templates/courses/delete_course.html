@@ -1,0 +1,23 @@
+{% extends 'frontend/base_dashboard.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-10">
+      <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Are you sure you want to delete <span class="text-primary">{{course.coursename}}</span>?</h4>
+            <form method="POST" action="" class="forms-sample">
+              {% csrf_token %}
+            <div class="row">	            	
+                <div class="col-6 form-group pb-3">
+                    <a href="javascript:history.back()" class="btn btn-info btn-sm btn-rounded mr-2">Cancel</a> &nbsp; 
+                    <input type="submit" name="Confirm" class="btn btn-danger btn-sm btn-rounded mr-2" value="Delete"/>
+                </div>
+            </div>
+            <br />
+            </form>
+        </div>
+      </div>
+    </div>
+  </div><br />
+  {% endblock %}

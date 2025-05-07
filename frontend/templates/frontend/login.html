@@ -1,0 +1,39 @@
+
+
+{% block content %}
+
+{% load static %}
+<!-- Google font -->
+<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
+
+<!-- Bootstrap -->
+<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+<!-- Custom stlylesheet -->
+<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+<div class="container">
+    <div class="columns">
+        <div class="column is-6 is-offset-3">
+            <h1 class="title">Login</h1>
+
+            <form method="post" action=".">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <div class="field">
+                    <div class="control">
+                        <button class="button is-success">Login</button>
+                    </div>
+                </div>
+            </form>
+
+            <p>Or signup <a href="{% url 'signup' %}">here</a> if not already signed up</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

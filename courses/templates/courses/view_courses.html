@@ -1,0 +1,74 @@
+{% extends 'frontend/base_dashboard.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="container">
+    <div class="page-inner">
+      <div class="page-header">
+        <h3 class="fw-bold mb-3">Courses</h3>
+        <ul class="breadcrumbs mb-3">
+          <li class="nav-home">
+            <a href="{% url 'index' %}">
+              <i class="icon-home"></i>
+            </a>
+          </li>
+          <li class="separator">
+            <i class="icon-arrow-right"></i>
+          </li>
+          <li class="nav-item">
+            <a href="#">Tables</a>
+          </li>
+          <li class="separator">
+            <i class="icon-arrow-right"></i>
+          </li>
+          <li class="nav-item">
+            <a href="#">Datatables</a>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">View courses</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table
+                  id="basic-datatables"
+                  class="display table table-striped table-hover"
+                >
+                  <thead>
+                    <tr>
+                      <th>Course name</th><th>Code</th><th>Levl</th><th>Fee</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for course in courses %}
+        <tr>
+            <td><a href="{% url 'course_detail' course.id %}">{{ course.coursename }}</a></td><td>{{ course.coursecode }}</td><td>{{ course.level }}</td>
+            <td>{{ course.fee }}</td>
+            <td>
+            <a href="{% url 'update_course' course.id %}" class="btn btn-info btn-sm">Edit</a></td>
+            <td><a href="{% url 'delete_course' course.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+        </tr>
+        {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+    <div id="add-job-app" class="container">
+       
+    <a href="{% url 'add_courses' %}" class="btn btn-primary">Add courses</a>
+    <br>
+    <a href="{% url 'index' %}" class="btn btn-success mt-3">Return home</a>
+    {% endblock %}
